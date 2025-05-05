@@ -88,12 +88,10 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
           draft: false
-          # prerelease: ${{ contains(github.ref_name, '-pre') }}
-          prerelease: true
+          prerelease: ${{ contains(github.ref_name, '-pre') }}
+        #   prerelease: true
           name: Release ${{ github.ref_name }}
           body: |
-            # Release ${{ github.ref_name }}
-
             ## Docker Images
 
             - `ghcr.io/${{ steps.lowercase.outputs.owner }}/app:${{ steps.version.outputs.version }}`
